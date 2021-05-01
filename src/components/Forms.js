@@ -19,7 +19,7 @@ class Forms extends React.Component {
       email: this.state.email,
       password: this.state.password,
     };
-    return pessoa;
+    alert(`${pessoa.name}\n${pessoa.email}\n${pessoa.password}`);
   };
 
   render() {
