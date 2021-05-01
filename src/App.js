@@ -5,6 +5,7 @@ import Greeting from "./components/Greeting";
 import InputText from "./components/InputText";
 import "./App.css";
 import ViewPerson from "./components/ViewPerson";
+import Forms from "./components/Forms";
 
 function App() {
   return (
@@ -24,6 +25,10 @@ function App() {
 
       <Card titulo="Pessoas" color="#c0392b">
         <ViewPerson/>
+      </Card>
+
+      <Card titulo="Forms" color="#14213d">
+        <Forms />
       </Card>
 
     </div>
