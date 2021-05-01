@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/Forms.css"
+import "./styles/Forms.css";
 
 class Forms extends React.Component {
   render() {
@@ -7,15 +7,23 @@ class Forms extends React.Component {
       <div>
         <h1>Cadastro</h1>
         <form className="my-form">
-          <label for="name">Nome: </label>
-          <input id="name" type="text" />
+          <div className="input-group">
+            <label for="name">Nome: </label>
+            <input id="name" type="text" />
+            <span></span>
+          </div>
 
-          <label for="email">Email: </label>
-          <input id="email" type="email" />
+          <div className="input-group">
+            <label for="email">Email: </label>
+            <input id="email" type="email" />
+            <span></span>
+          </div>
 
-          <label for="password">Senha: </label>
-          <input id="password" type="password" />
-
+          <div className="input-group">
+            <label for="password">Senha: </label>
+            <input id="password" type="password" />
+            <span></span>
+          </div>
           <button type="submit">Enviar</button>
         </form>
       </div>
