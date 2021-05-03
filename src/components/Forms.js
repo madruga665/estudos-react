@@ -4,12 +4,27 @@ import "./styles/Forms.css";
 class Forms extends React.Component {
   constructor() {
     super();
-    this.state = { name: "", email: "", password: "" };
+    this.state = {
+      name: "",
+      email: "",
+      password: "",
+      errors: { name: "", email: "", password: "" },
+    };
   }
   handleChange = (event) => {
+    const { target: { value, name } } = event
+    let newError = '';
+
+    if(name === 'name' && value.length > 40) {
+      newError = "Nome deve ter menos de 40 caracteres";
+    }
     this.setState({
-      [event.target.name]: event.target.value,
-    });
+      errors: {
+        ...this.state.errors,
+        [name]: newError
+      },
+      [name]: value
+    })
   };
 
   handleSubmit = (event) => {
@@ -26,7 +41,7 @@ class Forms extends React.Component {
     return (
       <div>
         <h1>Cadastro</h1>
-        <form className="my-form">
+        <form className="my-form" onSubmit={this.handleSubmit}>
           <div className="input-group">
             <label htmlFor="name">Nome: </label>
             <input
@@ -35,8 +50,9 @@ class Forms extends React.Component {
               type="text"
               value={this.state.name}
               onChange={this.handleChange}
+              style={{ borderColor: this.state.errors.name ? 'red' : '' }}
             />
-            <span></span>
+            <span>{this.state.errors.name}</span>
           </div>
 
           <div className="input-group">
@@ -62,7 +78,7 @@ class Forms extends React.Component {
             />
             <span></span>
           </div>
-          <button type="submit" onClick={this.handleSubmit}>
+          <button type="submit">
             Enviar
           </button>
         </form>
