@@ -3,25 +3,42 @@ import React from "react";
 class Counter extends React.Component {
   constructor() {
     super();
-    this.state = { contador: 0 };
+    this.state = { counter: 0, step: 0 };
   }
 
-  increment() {
-    this.setState({
-      contador: this.state.contador + 1,
-    });
+  handleChange = (event) => {
+    this.setState({ step: Number(event.target.value) });
+  };
+
+  reset = () => {
+    this.setState({counter: 0})
   }
-  decrement() {
+
+  increment = () => {
+    const { counter, step } = this.state;
     this.setState({
-      contador: this.state.contador - 1,
+      counter: counter + step,
     });
-  }
+  };
+  decrement = () => {
+    const { counter, step } = this.state;
+    this.setState({
+      counter: counter - step,
+    });
+  };
+
   render() {
+    const { counter, step } = this.state;
     return (
       <div>
-        <h2>{this.state.contador}</h2>
-        <button onClick={this.decrement.bind(this)}>-</button>
-        <button onClick={this.increment.bind(this)}>+</button>
+        <h2>{counter}</h2>
+        <input type="number" value={step} onChange={this.handleChange} />
+        <br />
+        <button onClick={this.decrement}>-</button>
+        <button onClick={this.increment}>+</button>
+        <br />
+        <button onClick={this.reset}>Reset</button>
+        <span style={{ display: "block", marginTop: 50 } }>Escolha um valor a ser incrementado e seja feliz <br/> 🤗️</span>
       </div>
     );
   }
