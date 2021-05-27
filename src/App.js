@@ -6,11 +6,11 @@ import InputText from "./components/InputText";
 import "./App.css";
 import ViewPerson from "./components/ViewPerson";
 import Forms from "./components/Forms";
+import StateWithRedux from "./components/StateWithRedux";
 
 function App() {
   return (
     <div className="app">
-
       <Card titulo="Boas Vindas">
         <Greeting name="Luciano" />
       </Card>
@@ -24,13 +24,16 @@ function App() {
       </Card>
 
       <Card titulo="Pessoas" color="#c0392b">
-        <ViewPerson/>
+        <ViewPerson />
       </Card>
 
       <Card titulo="Forms" color="#14213d">
         <Forms />
       </Card>
 
+      <Card titulo="Gerenciando estado com Redux" color="#f53b57">
+        <StateWithRedux />
+      </Card>
     </div>
   );
 }
