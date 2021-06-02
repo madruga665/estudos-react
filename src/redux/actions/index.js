@@ -1,6 +1,8 @@
 import { CLICK_UPDATE_VALUE } from './actionTypes';
 
-export const clickButton = (value) => ({
+export const clickButton = (newValue) => ({
   type: CLICK_UPDATE_VALUE,
-  newValue: value
+  payload: {
+    value: newValue
+  }
 });

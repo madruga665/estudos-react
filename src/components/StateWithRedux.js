@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { clickButton } from "../actions";
+import { clickButton } from "../redux/actions";
 import "./styles/StateWithRedux.css";
 
 class StateWithRedux extends Component {
@@ -16,11 +15,6 @@ class StateWithRedux extends Component {
     this.setState({
       inputValue: event.target.value,
     });
-  };
-
-  handleClick = (event, inputValue) => {
-    event.PreventDefault();
-    clickButton(inputValue);
   };
 
   render() {
@@ -42,8 +36,10 @@ const mapStateToProps = (store) => ({
   newValue: store.clickState.newValue,
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ clickButton }, dispatch);
-};
+const mapDispatchToProps = (dispatch) => ({
+  clickButton : (newValue) => dispatch(
+    clickButton(newValue),
+  )
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(StateWithRedux);

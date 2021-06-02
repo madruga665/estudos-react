@@ -1,5 +1,5 @@
 const initialState = {
-  newValue: "",
+  value: "",
 };
 
 export const clickReducer = (state = initialState, action) => {
@@ -7,7 +7,7 @@ export const clickReducer = (state = initialState, action) => {
     case "CLICK_UPDATE_VALUE":
       return {
         ...state,
-        newValue: action.newValue,
+        value: action.payload.newValue,
       };
     default:
       return state;

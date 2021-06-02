@@ -4,11 +4,11 @@ import './index.css';
 import App from './App';
 import Header from './components/Header';
 import { Provider } from 'react-redux';
-import { Store } from './store';
+import { store } from './redux/store';
 
 
 ReactDOM.render(
-  <Provider store={Store}>
+  <Provider store={store}>
     <React.StrictMode>
       <Header />
       <App />
