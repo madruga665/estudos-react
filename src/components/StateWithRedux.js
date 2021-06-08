@@ -32,8 +32,8 @@ class StateWithRedux extends Component {
   }
 }
 
-const mapStateToProps = (store) => ({
-  newValue: store.clickState.newValue,
+const mapStateToProps = (state) => ({
+  newValue: state.clickState.value,
 });
 
 const mapDispatchToProps = (dispatch) => ({
