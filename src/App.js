@@ -7,6 +7,7 @@ import "./App.css";
 import ViewPerson from "./components/ViewPerson";
 import Forms from "./components/Forms";
 import StateWithRedux from "./components/StateWithRedux";
+import Tabuada from "./components/Tabuada";
 
 function App() {
   return (
@@ -33,6 +34,10 @@ function App() {
 
       <Card titulo="Gerenciando estado com Redux" color="#f53b57">
         <StateWithRedux />
+      </Card>
+
+      <Card titulo="Tabuada" color="#f1c40f">
+        <Tabuada />
       </Card>
     </div>
   );
