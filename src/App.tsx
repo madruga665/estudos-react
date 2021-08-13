@@ -12,7 +12,7 @@ import Tabuada from "./components/Tabuada";
 function App() {
   return (
     <div className="app">
-      <Card titulo="Boas Vindas">
+      <Card titulo="Boas Vindas" color="#59e4af">
         <Greeting name="Luciano" />
       </Card>
 

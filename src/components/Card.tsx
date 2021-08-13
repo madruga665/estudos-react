@@ -2,7 +2,12 @@ import React from "react";
 import "./styles/Card.css";
 import './styles/Animations.css';
 
-class Card extends React.Component {
+interface CardProps {
+  titulo: string;
+  color: string;
+}
+
+class Card extends React.Component<CardProps> {
   render() {
     const { titulo, color, children } = this.props;
     return (
