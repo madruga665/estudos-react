@@ -1,12 +1,17 @@
 import React from "react";
 
-class Counter extends React.Component {
-  constructor() {
-    super();
+interface CounterState {
+  counter: number;
+  step: number;
+}
+
+class Counter extends React.Component<{}, CounterState> {
+  constructor(props: any) {
+    super(props);
     this.state = { counter: 0, step: 0 };
   }
 
-  handleChange = (event) => {
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ step: Number(event.target.value) });
   };
 
