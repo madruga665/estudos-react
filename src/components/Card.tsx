@@ -4,7 +4,7 @@ import './styles/Animations.css';
 
 interface CardProps {
   titulo: string;
-  color: string;
+  color?: string;
 }
 
 class Card extends React.Component<CardProps> {

@@ -1,6 +1,11 @@
 import React from 'react'
 
-class Person extends React.Component {
+interface IPerson {
+  nome: string;
+  idade: number;
+}
+
+class Person extends React.Component<IPerson> {
   render() {
     const {nome, idade} = this.props
     return (
