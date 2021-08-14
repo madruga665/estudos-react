@@ -1,33 +1,37 @@
 import React from "react";
 import "./styles/Forms.css";
 
-class Forms extends React.Component {
-  constructor() {
-    super();
+interface FormState {
+  name: string;
+  email: string;
+  password: string;
+  error: string;
+};
+
+class Forms extends React.Component<{}, FormState> {
+  constructor(props: any) {
+    super(props);
     this.state = {
       name: "",
       email: "",
       password: "",
-      errors: { name: "", email: "", password: "" },
+      error: "",
     };
   }
-  handleChange = (event) => {
-    const { target: { value, name } } = event
-    let newError = '';
 
-    if(name === 'name' && value.length > 40) {
+  handleChange = (field: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { target: { value } } = event
+    let newError: string = '';
+
+    if(field === 'name' && value.length > 40) {
       newError = "Nome deve ter menos de 40 caracteres";
     }
     this.setState({
-      errors: {
-        ...this.state.errors,
-        [name]: newError
-      },
-      [name]: value
-    })
+      error: newError, [field]: value
+    } as Pick<FormState,  "error" | "name">)
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const pessoa = {
       name: this.state.name,
@@ -35,6 +39,12 @@ class Forms extends React.Component {
       password: this.state.password,
     };
     alert(`${pessoa.name}\n${pessoa.email}\n${pessoa.password}`);
+    this.setState({
+      name: "",
+      email: "",
+      password: "",
+      error: "",
+    })
   };
 
   render() {
@@ -49,10 +59,10 @@ class Forms extends React.Component {
               name="name"
               type="text"
               value={this.state.name}
-              onChange={this.handleChange}
-              style={{ borderColor: this.state.errors.name ? 'red' : '' }}
+              onChange={this.handleChange('name')}
+              style={{ borderColor: this.state.error ? 'red' : '' }}
             />
-            <span>{this.state.errors.name}</span>
+            <span>{this.state.error}</span>
           </div>
 
           <div className="input-group">
@@ -62,7 +72,7 @@ class Forms extends React.Component {
               name="email"
               type="email"
               value={this.state.email}
-              onChange={this.handleChange}
+              onChange={this.handleChange('email')}
             />
             <span></span>
           </div>
@@ -74,7 +84,7 @@ class Forms extends React.Component {
               name="password"
               type="password"
               value={this.state.password}
-              onChange={this.handleChange}
+              onChange={this.handleChange('password')}
             />
             <span></span>
           </div>
