@@ -1,8 +1,14 @@
 import React from "react";
 
-class InputText extends React.Component {
-  constructor() {
-    super();
+interface InputTextProps {}
+
+interface InputTextState {
+  text: string;
+}
+
+class InputText extends React.Component<InputTextProps, InputTextState> {
+  constructor(props: InputTextProps) {
+    super(props);
     this.state = {
       text: "",
     };
@@ -10,12 +16,12 @@ class InputText extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.alertOnSubmit = this.alertOnSubmit.bind(this);
   }
-  handleClick(event) {
+  handleClick(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     this.alertOnSubmit();
     this.setState({ text: "" });
   }
-  handleChange(event) {
+  handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({
       text: event.target.value,
     });
@@ -26,7 +32,7 @@ class InputText extends React.Component {
   render() {
     return (
       <div>
-        <form>
+        <form onClick={this.handleClick}>
           <input
             style={{ marginTop: "50px" }}
             placeholder="digite alguma coisa"
@@ -34,7 +40,7 @@ class InputText extends React.Component {
             type="text"
             onChange={this.handleChange}
           ></input>
-          <button type="submit" onClick={this.handleClick}>
+          <button type="submit">
             Enviar
           </button>
         </form>

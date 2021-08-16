@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles/Forms.css";
 
+interface FormProps {}
 interface FormState {
   name: string;
   email: string;
@@ -8,8 +9,8 @@ interface FormState {
   error: string;
 };
 
-class Forms extends React.Component<{}, FormState> {
-  constructor(props: any) {
+class Forms extends React.Component<FormProps, FormState> {
+  constructor(props: FormProps) {
     super(props);
     this.state = {
       name: "",

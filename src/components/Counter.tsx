@@ -1,12 +1,13 @@
 import React from "react";
 
+interface CounterProps {}
 interface CounterState {
   counter: number;
   step: number;
 }
 
-class Counter extends React.Component<{}, CounterState> {
-  constructor(props: any) {
+class Counter extends React.Component<CounterProps, CounterState> {
+  constructor(props: CounterProps) {
     super(props);
     this.state = { counter: 0, step: 0 };
   }
