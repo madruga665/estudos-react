@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface CounterProps {}
 interface CounterState {
@@ -17,7 +17,7 @@ class Counter extends React.Component<CounterProps, CounterState> {
   };
 
   reset = () => {
-    this.setState({counter: 0})
+    this.setState({ counter: 0 });
   }
 
   increment = () => {
@@ -26,6 +26,7 @@ class Counter extends React.Component<CounterProps, CounterState> {
       counter: counter + step,
     });
   };
+
   decrement = () => {
     const { counter, step } = this.state;
     this.setState({
@@ -40,11 +41,16 @@ class Counter extends React.Component<CounterProps, CounterState> {
         <h2>{counter}</h2>
         <input type="number" value={step} onChange={this.handleChange} />
         <br />
-        <button onClick={this.decrement}>-</button>
-        <button onClick={this.increment}>+</button>
+        <button type="button" onClick={this.decrement}>-</button>
+        <button type="button" onClick={this.increment}>+</button>
         <br />
-        <button onClick={this.reset}>Reset</button>
-        <span style={{ display: "block", marginTop: 50 } }>Escolha um valor a ser incrementado e seja feliz <br/> 🤗️</span>
+        <button type="button" onClick={this.reset}>Reset</button>
+        <span style={{ display: 'block', marginTop: 50 }}>
+          Escolha um valor a ser incrementado e seja feliz
+          <br />
+          {' '}
+          🤗️
+        </span>
       </div>
     );
   }

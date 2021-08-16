@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable react/prefer-stateless-function */
+import React from 'react';
 
 interface PersonProps {
   nome: string;
@@ -7,11 +8,17 @@ interface PersonProps {
 
 class Person extends React.Component<PersonProps> {
   render() {
-    const {nome, idade} = this.props
+    const { nome, idade } = this.props;
     return (
       <div>
-        <h2>Nome: {nome}</h2>
-        <p>Idade: {idade}</p>
+        <h2>
+          Nome:
+          {nome}
+        </h2>
+        <p>
+          Idade:
+          {idade}
+        </p>
       </div>
     );
   }

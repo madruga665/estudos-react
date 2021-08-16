@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable no-alert */
+import React from 'react';
 
 interface InputTextProps {}
 
@@ -10,40 +11,46 @@ class InputText extends React.Component<InputTextProps, InputTextState> {
   constructor(props: InputTextProps) {
     super(props);
     this.state = {
-      text: "",
+      text: '',
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.alertOnSubmit = this.alertOnSubmit.bind(this);
   }
-  handleClick(event: React.FormEvent<HTMLFormElement>) {
+
+  handleClick(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     this.alertOnSubmit();
-    this.setState({ text: "" });
+    this.setState({ text: '' });
   }
+
   handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({
       text: event.target.value,
     });
   }
+
   alertOnSubmit() {
-    alert(`aqui esta o que vc digitou: \n ${this.state.text}`);
+    const { text } = this.state;
+    alert(`aqui esta o que vc digitou: \n ${text}`);
   }
+
   render() {
+    const { text } = this.state;
     return (
       <div>
-        <form onClick={this.handleClick}>
-          <input
-            style={{ marginTop: "50px" }}
-            placeholder="digite alguma coisa"
-            value={this.state.text}
-            type="text"
-            onChange={this.handleChange}
-          ></input>
-          <button type="submit">
-            Enviar
-          </button>
-        </form>
+
+        <input
+          style={{ marginTop: '50px' }}
+          placeholder="digite alguma coisa"
+          value={text}
+          type="text"
+          onChange={this.handleChange}
+        />
+        <button type="button" onClick={this.handleClick}>
+          Enviar
+        </button>
+
       </div>
     );
   }

@@ -1,13 +1,13 @@
-import React from "react";
-import Card from "./components/Card";
-import Counter from "./components/Counter";
-import Greeting from "./components/Greeting";
-import InputText from "./components/InputText";
-import "./App.css";
-import ViewPerson from "./components/ViewPerson";
-import Forms from "./components/Forms";
-import StateWithRedux from "./components/StateWithRedux";
-import Tabuada from "./components/Tabuada";
+import React from 'react';
+import Card from './components/Card';
+import Counter from './components/Counter';
+import Greeting from './components/Greeting';
+import InputText from './components/InputText';
+import './App.css';
+import ViewPerson from './components/ViewPerson';
+import Forms from './components/Forms';
+import StateWithRedux from './components/StateWithRedux';
+import Tabuada from './components/Tabuada';
 
 function App() {
   return (
