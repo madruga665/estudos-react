@@ -4,9 +4,21 @@ import React from 'react';
 import Person from './Person';
 import personsData from '../Helpers/data-persons';
 
-class ViewPerson extends React.Component {
-  constructor() {
-    super();
+interface ViewPersonProps {}
+
+interface ViewPersonState {
+  index: number;
+  persons: Array<PersonsData>;
+}
+
+interface PersonsData {
+  nome: string;
+  idade: number;
+}
+
+class ViewPerson extends React.Component<ViewPersonProps, ViewPersonState> {
+  constructor(props: ViewPersonProps) {
+    super(props);
     this.state = { index: 0, persons: personsData };
   }
 
