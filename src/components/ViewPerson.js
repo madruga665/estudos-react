@@ -1,24 +1,29 @@
-import Person from "./Person";
-import React from "react";
-import { persons } from "../Helpers/data-persons";
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
+import React from 'react';
+import Person from './Person';
+import personsData from '../Helpers/data-persons';
 
 class ViewPerson extends React.Component {
   constructor() {
     super();
-    this.state = { index: 0, persons: persons };
+    this.state = { index: 0, persons: personsData };
   }
+
   next() {
+    const { index, persons } = this.state;
     this.setState({
-      index: this.state.index + 1,
+      index: index + 1,
     });
-    if (this.state.index === this.state.persons.length - 1) {
+    if (index === persons.length - 1) {
       this.setState({
         index: 0,
       });
     }
   }
+
   olders() {
-    const filtered = persons.filter((person) => person.idade >= 18);
+    const filtered = personsData.filter((person) => person.idade >= 18);
     this.setState({
       index: 0,
     });
@@ -29,20 +34,21 @@ class ViewPerson extends React.Component {
 
   reset() {
     this.setState({
-      persons: persons,
+      persons: personsData,
     });
   }
 
   render() {
+    const { persons, index } = this.state;
     return (
       <div>
         <Person
-          nome={this.state.persons[this.state.index].nome}
-          idade={this.state.persons[this.state.index].idade}
+          nome={persons[index].nome}
+          idade={persons[index].idade}
         />
-        <button onClick={this.next.bind(this)}>Proxima Pessoa</button>
-        <button onClick={this.olders.bind(this)}>Maiores de idade</button>
-        <button onClick={this.reset.bind(this)}>Reset</button>
+        <button type="button" onClick={this.next.bind(this)}>Proxima Pessoa</button>
+        <button type="button" onClick={this.olders.bind(this)}>Maiores de idade</button>
+        <button type="button" onClick={this.reset.bind(this)}>Reset</button>
       </div>
     );
   }

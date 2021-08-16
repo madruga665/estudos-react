@@ -1,13 +1,15 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import React from 'react';
-import Card from './components/Card';
-import Counter from './components/Counter';
-import Greeting from './components/Greeting';
-import InputText from './components/InputText';
 import './App.css';
 import ViewPerson from './components/ViewPerson';
+import Tabuada from './components/Tabuada';
+import Greeting from './components/Greeting';
+import Counter from './components/Counter';
+import InputText from './components/InputText';
 import Forms from './components/Forms';
 import StateWithRedux from './components/StateWithRedux';
-import Tabuada from './components/Tabuada';
+import Card from './components/Card';
 
 function App() {
   return (
