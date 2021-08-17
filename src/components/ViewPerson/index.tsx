@@ -1,8 +1,8 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 import React from 'react';
-import Person from './Person';
-import personsData from '../Helpers/data-persons';
+import Person from '../Person';
+import personsData from '../../Helpers/data-persons';
 
 interface ViewPersonProps {}
 

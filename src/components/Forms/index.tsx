@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 import React from 'react';
-import './styles/Forms.css';
+import './Forms.css';
 
 interface FormProps {}
 interface FormState {

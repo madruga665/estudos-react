@@ -5,12 +5,12 @@ export default function Tabuada() {
   const [tabuadaOutput, setTabuadaOutput] = useState([]);
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  const handleChange = (event) => {
+  const handleChange = (event:any) => {
     setTabuadaInput(event.target.value);
   };
 
   const generateTabuada = () => {
-    const result = numbers.map((number) => number * tabuadaInput);
+    const result:any = numbers.map((number) => number * tabuadaInput);
     setTabuadaOutput(result);
   };
 

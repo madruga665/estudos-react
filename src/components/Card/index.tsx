@@ -1,7 +1,7 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import './styles/Card.css';
-import './styles/Animations.css';
+import './Card.css';
+import './Animations.css';
 
 interface CardProps {
   titulo: string;

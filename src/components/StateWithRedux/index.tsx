@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import clickButton from '../redux/actions';
-import './styles/StateWithRedux.css';
+import clickButton from '../../redux/actions';
+import './StateWithRedux.css';
 
 interface StateWithReduxProps {
   newClickButton: any;
